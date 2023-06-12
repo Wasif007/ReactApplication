@@ -5,10 +5,12 @@ const [text, setText] = useState("Enter Text here");
 const hanlderUpCase=()=>{
 let texte=text;
 setText(texte.toUpperCase());
+props.settingAlert("Text changed to UpperCase","success");
 }
 const hanlderLoCase=()=>{
     let texte=text;
     setText(texte.toLowerCase());
+    props.settingAlert("Text changed to LowerCase","success");
     }
 const handlerOnChange=(event)=>{
 setText(event.target.value);
@@ -18,11 +20,13 @@ const hanlderReverse=()=>{
 let newText=text.split(" ");
 let reverseNewText=newText.reverse();
 setText(reverseNewText.join(" "));  
+props.settingAlert("Text Reversed","success");
 }
 const handlerSpeak=()=>{
   let speakData = new SpeechSynthesisUtterance();
   speakData.text=text;
   speechSynthesis.speak(speakData);
+  props.settingAlert("Text to be Spoken","success");
   }
   
 return (
