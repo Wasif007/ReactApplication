@@ -8,6 +8,18 @@ import Alert from './Components/Alert';
 function App() {
   const [mode, setMode] = useState('light');
   const [alert,setAlert]= useState(null);
+  const [redmode,setRedMode]= useState('white');
+  const settingReddishMode=()=>{
+    if(redmode==='white')
+    {
+      setRedMode('#FF0000');
+      document.body.style.backgroundColor='#FF0000';
+    }
+    else {
+      setRedMode('white');
+      document.body.style.backgroundColor='white';
+    }
+  }
   const settingAlert=(message,type)=>{
     setAlert({
       message:message,
@@ -17,12 +29,14 @@ function App() {
       setAlert(null);
     }, 1500);
   }
+ 
   const toggleButton=()=>{
     if(mode==='light')
     {
       setMode('dark');
       document.body.style.backgroundColor='#042743';
       settingAlert("Dark Mode is enabled","success");
+      document.title="TextUtils-Dark Mode";
     }
     else
     {
@@ -33,7 +47,7 @@ function App() {
   }
   return (
   <>
-<Navbar title="TextUtils" about="About Us" mode={mode} toggleButton={toggleButton}/>
+<Navbar title="TextUtils" about="About Us" mode={mode} toggleButton={toggleButton} settingReddishMode={settingReddishMode}/>
 <Alert alert={alert}/>
 <div className="container my-3">
 <TextForm heading="Enter text here to be analyzed" settingAlert={settingAlert} mode={mode}/> 
