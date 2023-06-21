@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
+ 
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
     <Link className="navbar-brand" to="/">{props.title}</Link>
@@ -19,14 +20,20 @@ export default function Navbar(props) {
           <Link className="nav-link" to="/about">{props.about}</Link>
         </li>
       </ul>
+      {/* <div className="d-flex" >
+        <div className="bg-primary rounded mx-2" onClick={()=>props.toggleButton('primary')} style={{width:'30px',height:'30px',cursor:'pointer'}} />
+        <div className="bg-danger rounded mx-2" onClick={()=>props.toggleButton('danger')} style={{width:'30px',height:'30px',cursor:'pointer'}} />
+        <div className="bg-light rounded mx-2" onClick={()=>props.toggleButton('light')} style={{width:'30px',height:'30px',cursor:'pointer'}} />
+        <div className="bg-success rounded mx-2" onClick={()=>props.toggleButton('success')} style={{width:'30px',height:'30px',cursor:'pointer'}} />
+
+        </div> */}
+
+      </div>
             <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
         <input className="form-check-input" onClick={props.toggleButton} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode</label>
-      </div>
-      <div className="form-check form-switch">
-  <input className="form-check-input" onClick={props.settingReddishMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable ReddishMode</label>
-</div>
+      
+       
     </div>
   </nav>
   )

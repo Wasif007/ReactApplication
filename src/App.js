@@ -10,18 +10,13 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 function App() {
   const [mode, setMode] = useState('light');
   const [alert,setAlert]= useState(null);
-  const [redmode,setRedMode]= useState('white');
-  const settingReddishMode=()=>{
-    if(redmode==='white')
-    {
-      setRedMode('#FF0000');
-      document.body.style.backgroundColor='#FF0000';
-    }
-    else {
-      setRedMode('white');
-      document.body.style.backgroundColor='white';
-    }
-  }
+  // const removeBackgroundClasses=()=>{
+  //   document.body.classList.remove('bg-primary');
+  //   document.body.classList.remove('bg-dark');
+  //   document.body.classList.remove('bg-success');
+  //   document.body.classList.remove('bg-danger');
+  //   document.body.classList.remove('bg-light');
+  // }
   const settingAlert=(message,type)=>{
     setAlert({
       message:message,
@@ -33,6 +28,14 @@ function App() {
   }
  
   const toggleButton=()=>{
+    // removeBackgroundClasses();
+    // document.body.classList.add('bg-'+cls);
+    // if(cls==='primary'){
+    //   settingAlert("Blue Mode is enabled","success");
+    // }
+    // else if(cls==='light'){
+    //   settingAlert("Light mode is enabled","success")
+    // }
     if(mode==='light')
     {
       setMode('dark');
@@ -50,7 +53,7 @@ function App() {
   return (
   <>
   <Router>
-<Navbar title="TextUtils" about="About Us" mode={mode} toggleButton={toggleButton} settingReddishMode={settingReddishMode}/>
+<Navbar title="TextUtils" about="About Us" mode={mode} toggleButton={toggleButton} />
 <Alert alert={alert}/>
 <div className="container my-3">
 <Routes>
