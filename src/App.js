@@ -56,7 +56,7 @@ function App() {
 <Routes>
 <Route path='/about' element={<About mode={mode}/>} />
 <Route path='/' 
-element={<TextForm heading="Enter text here to be analyzed" settingAlert={settingAlert} mode={mode}/> } />
+element={<TextForm heading="TextUtilization- WordCounter | Character Counter | UpperCase to LowerCase | LowerCase to UpperCase" settingAlert={settingAlert} mode={mode}/> } />
         		</Routes>
 
 
