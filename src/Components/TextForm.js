@@ -37,10 +37,10 @@ return (
     <textarea className="form-control" value={text} onChange={handlerOnChange}
     style={{backgroundColor:props.mode==='dark'?'#042743':'white',color:props.mode==='dark'?'white':'black'}} 
     id="myBox" rows="8"></textarea>
-    <button className="btn btn-primary my-2 mx-1" onClick={hanlderUpCase}>To UpperCase</button>
-    <button className="btn btn-primary my-2 mx-1" onClick={hanlderLoCase}>To LowerCase</button>
-    <button className="btn btn-primary my-2 mx-1" onClick={hanlderReverse}>Reverse</button>
-    <button type="submit" onClick={handlerSpeak} className="btn btn-warning mx-2 my-2">Speak</button>
+    <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={hanlderUpCase}>To UpperCase</button>
+    <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={hanlderLoCase}>To LowerCase</button>
+    <button disabled={text.length===0}  className="btn btn-primary my-2 mx-1" onClick={hanlderReverse}>Reverse</button>
+    <button disabled={text.length===0} type="submit" onClick={handlerSpeak} className="btn btn-warning mx-2 my-2">Speak</button>
   </div>
 </div>
 <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
