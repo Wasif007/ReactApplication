@@ -45,7 +45,7 @@ return (
 </div>
 <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
     <h2>Your Text Summary Here</h2>
-    <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words {text.length} characters</p>
+    <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words {text.length} characters</p>
     <h3>Preview</h3>
     <p>{text.length>0?text:"Enter Text in box to be previewed"}</p>
 </div>
