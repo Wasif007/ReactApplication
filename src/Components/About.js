@@ -1,38 +1,23 @@
-import React,{useState} from 'react'
+import React from 'react'
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color:'black',
-        backgroundColor:'white'
-    });
-    const [myStyleButton, setMyStyleButton] = useState("Set Dark Mode");
-    const myToggleFunction=()=>{
-        if(myStyle.color==='white'){
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white',
-                border:'1px solid white'
-            })
-            setMyStyleButton("Set Dark Mode");
-        }
-        else{
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black'
-            })
-            setMyStyleButton("Set Light Mode");
-        }
+export default function About(props) {
+    
+    console.log(props.mode);
+    let myStyle={   
+        color:props.mode==='dark'?'white':'rgb(12 65 106)',
+        backgroundColor:props.mode==='dark'?'rgb(12 65 106)':'white'
     }
 
 return (
     <div>
-                <div className="container" style={myStyle}>
+                <div className="container" style={{backgroundColor:props.mode==='dark'?'rgb(4 39 67)':'white',
+            color:props.mode==='dark'?'white':'black'}}>
                 <h2>About Us</h2>
                 <div className="accordion" id="accordionExample" style={myStyle}>
             <div className="accordion-item">
                 <h2 className="accordion-header">
                 <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
+                    
                 </button>
                 </h2>
                 <div id="collapseOne" style={myStyle} className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -68,9 +53,7 @@ return (
             </div>
 
                 </div>
-                               <div className="container my-2">
-            <button type="button" onClick={myToggleFunction} className="btn btn-primary my-2">{myStyleButton}</button>
-            </div>
+                    
              </div>
   )
 }
